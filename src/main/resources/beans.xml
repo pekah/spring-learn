@@ -8,6 +8,7 @@
     <bean id="person" class="com.eli.factorybean.Person">
         <property name="address" ref="address"/>
         <property name="creditId" ref="creditId"/>
+        <property name="birthday" ref="birthday"/>
     </bean>
 
     <!--使用静态工厂方法返回bean-->
@@ -15,5 +16,7 @@
     <!--使用非静态工厂方法返回bean-->
     <bean id="creditIdFactory" class="com.eli.factorybean.NonStaticCreditIdFactory"/>
     <bean id="creditId" factory-bean="creditIdFactory" factory-method="getInstance"/>
+    <!--通过实现FactoryBean接口返回bean-->
+    <bean id="birthday" class="com.eli.factorybean.BirthdayFactoryBean"/>
 
 </beans>
