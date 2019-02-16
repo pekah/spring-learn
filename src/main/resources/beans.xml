@@ -7,7 +7,13 @@
 
     <bean id="person" class="com.eli.factorybean.Person">
         <property name="address" ref="address"/>
+        <property name="creditId" ref="creditId"/>
     </bean>
 
+    <!--使用静态工厂方法返回bean-->
     <bean id="address" class="com.eli.factorybean.StaticAddressFactory" factory-method="getInstance"/>
+    <!--使用非静态工厂方法返回bean-->
+    <bean id="creditIdFactory" class="com.eli.factorybean.NonStaticCreditIdFactory"/>
+    <bean id="creditId" factory-bean="creditIdFactory" factory-method="getInstance"/>
+
 </beans>
